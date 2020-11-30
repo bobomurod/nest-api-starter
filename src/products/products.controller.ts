@@ -1,10 +1,15 @@
-import { Controller, Get, Param, Post, Put, Delete, Body} from '@nestjs/common';
+import { Controller, Get, Param, Post, Put, Delete, Body, HttpCode, HttpStatus } from '@nestjs/common';
 import { CreateProductsDto } from './dto/create-products.dto';
 import { UpdateProductsDto } from './dto/update-products.dto';
+import { ProductsService } from './products.service';
 // import { Request } from 'express';
 
 @Controller('products')
 export class ProductsController {
+
+  constructor(private readonly productService: ProductsService) {
+
+  }
 
   @Get()
   getProducts(): string {
@@ -12,8 +17,8 @@ export class ProductsController {
   }
 
   @Get(':id')
-  getProduct(@Param() params): string {
-    return params.id
+  getOne(@Param() params): string {
+    return this.productService.getById(id)
   }
 
   @Post()
