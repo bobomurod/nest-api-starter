@@ -18,7 +18,7 @@ export class ProductsController {
 
   @Get(':id')
   getOne(@Param() params): string {
-    return this.productService.getById(id)
+    return this.productService.getById(params.id)
   }
 
   @Post()
