@@ -12,8 +12,8 @@ export class ProductsController {
   }
 
   @Get()
-  getProducts(): string {
-    return "Get Products"
+  getProducts(): string[] {
+    return this.productService.getAll()
   }
 
   @Get(':id')
