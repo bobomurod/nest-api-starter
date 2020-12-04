@@ -23,7 +23,7 @@ export class ProductsController {
 
   @Post()
   create(@Body() createProductDto: CreateProductsDto){
-    return `Title: ${createProductDto.title} price: ${createProductDto.price}`
+    return this.productService.create(createProductDto)
   }
 
   @Delete(':id')
@@ -32,7 +32,7 @@ export class ProductsController {
   }
 
   @Put(':id')
-  update(@Param() updateProductDto: UpdateProductsDto, @Param('id') id:string){
-    return `Updated ${id}`
+  update(@Body() updateProductDto: UpdateProductsDto) {
+    return this.productService.update(updateProductDto)
   }
 }
