@@ -1,4 +1,12 @@
-import { Controller, Get, Param, Post, Put, Delete, Body, HttpCode, HttpStatus } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  Post,
+  Put,
+  Delete,
+  Body,
+} from '@nestjs/common';
 import { CreateProductsDto } from './dto/create-products.dto';
 import { UpdateProductsDto } from './dto/update-products.dto';
 import { ProductsService } from './products.service';
@@ -6,33 +14,30 @@ import { ProductsService } from './products.service';
 
 @Controller('products')
 export class ProductsController {
-
-  constructor(private readonly productService: ProductsService) {
-
-  }
+  constructor(private readonly productService: ProductsService) {}
 
   @Get()
   getProducts(): string[] {
-    return this.productService.getAll()
+    return this.productService.getAll();
   }
 
   @Get(':id')
   getOne(@Param() params): string {
-    return this.productService.getById(params.id)
+    return this.productService.getById(params.id);
   }
 
   @Post()
-  create(@Body() createProductDto: CreateProductsDto){
-    return this.productService.create(createProductDto)
+  create(@Body() createProductDto: CreateProductsDto) {
+    return this.productService.create(createProductDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return `Removed ${id}`
+    return `Removed ${id}`;
   }
 
   @Put(':id')
   update(@Body() updateProductDto: UpdateProductsDto) {
-    return this.productService.update(updateProductDto)
+    return this.productService.update(updateProductDto);
   }
 }

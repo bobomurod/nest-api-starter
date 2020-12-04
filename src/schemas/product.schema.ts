@@ -15,4 +15,4 @@ export class Product {
   id: number;
 }
 
-export const ProductSchema = SchemaFactory.createForClass(Product)
+export const ProductSchema = SchemaFactory.createForClass(Product);
