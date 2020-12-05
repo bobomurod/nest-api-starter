@@ -1,5 +1,5 @@
-export class UpdateProductsDto{
-  title: string
-  price: number
-  id: number
+export class UpdateProductsDto {
+  title: string;
+  price: number;
+  id: number;
 }

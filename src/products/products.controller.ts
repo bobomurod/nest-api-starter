@@ -10,7 +10,7 @@ import {
 import { CreateProductsDto } from './dto/create-products.dto';
 import { UpdateProductsDto } from './dto/update-products.dto';
 import { ProductsService } from './products.service';
-// import { Request } from 'express';
+import { Product } from './schemas/product.schema';
 
 @Controller('products')
 export class ProductsController {
@@ -27,7 +27,7 @@ export class ProductsController {
   }
 
   @Post()
-  create(@Body() createProductDto: CreateProductsDto) {
+  create(@Body() createProductDto: CreateProductsDto): Promise<Product> {
     return this.productService.create(createProductDto);
   }
 
